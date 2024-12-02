@@ -3,6 +3,8 @@
 //
 
 #include "Pedido.h"
+#include <string>
+using namespace std;
 
 Pedido::Pedido(int id, string fec){
   idPedido = id;
