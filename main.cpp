@@ -5,13 +5,6 @@
 
 using namespace std;
 
-// Estructura para almacenar la información del cliente
-struct Cliente {
-    string nombre;
-    string direccion;
-    string metodoPago;
-};
-
 int main() {
     Sephora tienda;
     tienda.ejecutar();

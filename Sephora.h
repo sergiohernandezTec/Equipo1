@@ -5,25 +5,24 @@
 #ifndef SEPHORA_H
 #define SEPHORA_H
 
-#include "Cliente.h"
-#include "Producto.h"
 #include <vector>
-#include <iostream>
 #include <string>
-
+#include "Producto.h"
+#include "Cliente.h"
+#include "Pedido.h"
 using namespace std;
 
 class Sephora {
 private:
-    Cliente cliente;
-    vector<Producto> productos;
+    vector<Producto> Productos;
+    vector<Cliente> Clientes;
+    vector<Pedido> Pedidos;
 
 public:
     Sephora();
-    void mostrarMenu();
-    void verProductos();
-    void hacerPedido();
-    void ejecutar();
+    void agregarCliente(const Cliente& cliente);
+    void agregarPedido(const Pedido& pedido);
+    void listarProductos() const;
 };
 
 #endif // SEPHORA_H
