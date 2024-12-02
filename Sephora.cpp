@@ -1,32 +1,19 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include "Sephora.h"
+//
+// Created by Nat on 02/12/2024.
+//
 
+#include "Sephora.h"
+#include <iostream>
 using namespace std;
 
-// Estructura para almacenar la información del cliente
-struct Cliente {
-    string nombre;
-    string direccion;
-    string metodoPago;
-};
-
-int main() {
-    Sephora tienda;
-    tienda.ejecutar();
-    return 0;
+Sephora::Sephora() {
+    // Inicializar la lista de productos
+    productos.push_back(Producto("Maquillaje", "Dior", 3));
+    productos.push_back(Producto("Perfume", "MAC", 1));
+    productos.push_back(Producto("Cuidado del cabello", "Rare Beauty", 2));
 }
 
-// Estructura para productos
-struct Producto {
-    string tipo;
-    string marca;
-    int cantidad;
-};
-
-// Función para mostrar el menú principal
-void mostrarMenu() {
+void Sephora::mostrarMenu() {
     cout << "======= Bienvenido a Sephora =======\n";
     cout << "1. Iniciar Sesión\n";
     cout << "2. Ver Productos\n";
@@ -35,20 +22,7 @@ void mostrarMenu() {
     cout << "Seleccione una opción: ";
 }
 
-// Función para iniciar sesión
-void iniciarSesion(Cliente &cliente) {
-    cout << "Ingrese su nombre: ";
-    cin.ignore();
-    getline(cin, cliente.nombre);
-    cout << "Ingrese su dirección: ";
-    getline(cin, cliente.direccion);
-    cout << "Ingrese su método de pago: ";
-    getline(cin, cliente.metodoPago);
-    cout << "Inicio de sesión exitoso. Bienvenido, " << cliente.nombre << "!\n";
-}
-
-// Función para mostrar productos
-void verProductos(vector<Producto> &productos) {
+void Sephora::verProductos() {
     cout << "====== Productos Disponibles ======\n";
     for (size_t i = 0; i < productos.size(); i++) {
         cout << i + 1 << ". " << productos[i].tipo << " - " << productos[i].marca
@@ -56,13 +30,12 @@ void verProductos(vector<Producto> &productos) {
     }
 }
 
-// Función para realizar un pedido
-void hacerPedido(Cliente &cliente, vector<Producto> &productos) {
+void Sephora::hacerPedido() {
     if (cliente.nombre.empty()) {
         cout << "Debe iniciar sesión antes de hacer un pedido.\n";
         return;
     }
-    verProductos(productos);
+    verProductos();
     cout << "Seleccione el número del producto que desea comprar: ";
     int opcion;
     cin >> opcion;
@@ -87,15 +60,7 @@ void hacerPedido(Cliente &cliente, vector<Producto> &productos) {
     }
 }
 
-// Función principal
-int main() {
-    Cliente cliente;
-    vector<Producto> productos = {
-        {"Maquillaje", "Dior", 3},
-        {"Perfume", "MAC", 1},
-        {"Cuidado del cabello", "Rare Beauty", 2}
-    };
-
+void Sephora::ejecutar() {
     int opcion;
 
     do {
@@ -104,13 +69,13 @@ int main() {
 
         switch (opcion) {
             case 1:
-                iniciarSesion(cliente);
+                cliente.iniciarSesion();
                 break;
             case 2:
-                verProductos(productos);
+                verProductos();
                 break;
             case 3:
-                hacerPedido(cliente, productos);
+                hacerPedido();
                 break;
             case 4:
                 cout << "Gracias por visitar Sephora. ¡Hasta pronto!\n";
@@ -120,6 +85,4 @@ int main() {
                 break;
         }
     } while (opcion != 4);
-
-    return 0;
 }
