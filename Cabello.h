@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 
-class Cabello : public Producto; {
+class Cabello : public Producto {
 private:
     float volumen;
     string formula;
