@@ -6,6 +6,8 @@
 #define MAQUILLAJE_H
 
 #include "Producto.h"
+#include <string>
+using namespace std;
 
 class Maquillaje : public Producto {
 private:

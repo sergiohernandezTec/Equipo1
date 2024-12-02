@@ -4,8 +4,9 @@
 
 #ifndef PERFUME_H
 #define PERFUME_H
-
+#include <string>
 #include "Producto.h"
+using namespace std;
 
 class Perfume : public Producto {
 private:
