@@ -4,16 +4,16 @@
 
 #include "Pedido.h"
 
-Pedido(int id, string fec){
+Pedido::Pedido(int id, string fec){
   idPedido = id;
   Fecha = fec;
   }
 
-void agregarProducto(Producto p){
+void Pedido::agregarProducto(Producto p){
   productos.push_back(p);
   }
 
-double calcularTotal(){
+double Pedido::calcularTotal(){
   double total = 0;
   double precio = 0;
   for(int i = 0; i < productos.size(); i++){
