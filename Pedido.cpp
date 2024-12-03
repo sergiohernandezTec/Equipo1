@@ -6,8 +6,7 @@
 #include <string>
 using namespace std;
 
-Pedido::Pedido(int id, string fec){
-  idPedido = id;
+Pedido::Pedido(string fec){
   Fecha = fec;
   }
 

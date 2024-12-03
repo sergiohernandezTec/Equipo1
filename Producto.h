@@ -14,10 +14,11 @@ class Producto {
 protected:
     double precio;
     string marca;
+    int id;
     vector<Comentario> comentarios;
 
 public:
-    Producto(double precio, string marca);
+    Producto(int id, double precio, string marca);
     void agregarComentario(Comentario comentario);
     double obtenerPrecio();
     void mostrarProducto();

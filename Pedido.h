@@ -7,16 +7,16 @@
 #include <string>
 #include <vector>
 #include "Producto.h"
+#include "Sephora.h"
 using namespace std;
 
 class Pedido {
 private:
-  int idPedido;
   string Fecha;
   double Total;
   vector<Producto> productos;
  public:
-  Pedido(int id, string fec);
+  Pedido(string fec);
   void agregarProducto(Producto p);
   double calcularTotal();
 

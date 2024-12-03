@@ -10,16 +10,26 @@ Sephora::Sephora() {
 
 }
 
-void Sephora::agregarCliente(const Cliente& cliente) {
+void Sephora::agregarCliente(Cliente cliente) {
     Clientes.push_back(cliente);
 }
 
-void Sephora::agregarPedido(const Pedido& pedido) {
+void Sephora::agregarPedido(Pedido pedido) {
     Pedidos.push_back(pedido);
 }
+void Sephora::agregarProducto(Producto producto) {
+  Productos.push_back(producto);
+}
 
-void Sephora::listarProductos() const {
-    for (const auto& producto : Productos) {
-        cout << producto.toString() << endl;
+void Sephora::listarProductos() {
+  for (int k=0 ; k<Productos.size() ; k++){
+    Productos[k].mostrarProducto();
+    }
+}
+void Sephora::mostrarClientes()  {
+   int i = 1;
+  for (int k=0 ; k<Clientes.size() ; k++){
+    cout << i << ". "; Clientes[k].mostrarCliente();
+    i = i + 1;
     }
 }

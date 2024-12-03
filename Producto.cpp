@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-Producto::Producto(double precio, string marca): precio(precio), marca(marca) {}
+Producto::Producto(int id, double precio, string marca): id(id), precio(precio), marca(marca) {}
 
 void Producto::agregarComentario(Comentario comentario) {
     comentarios.push_back(comentario);
@@ -17,6 +17,6 @@ double Producto::obtenerPrecio() {
 }
 
 void Producto::mostrarProducto() {
-    cout << "Marca: " << marca << ", Precio: $" << precio << endl;
+    cout << "ID: " << id << ", Marca: " << marca << ", Precio: $" << precio << endl;
 }
 

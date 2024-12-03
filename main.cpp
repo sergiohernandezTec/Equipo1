@@ -6,11 +6,13 @@
 #include "Cliente.h"
 #include "Direccion.h"
 #include "MetodoPago.h"
+#include "Producto.h"
 
 using namespace std;
 
 int main()
 {
+    Sephora sephora;
     int opcion;
     do
     {
@@ -38,6 +40,7 @@ int main()
 
             cout << "Ingresa el correo: "; cin >> cor;
             Cliente cliente(nom,cor);
+            sephora.agregarCliente(cliente)
 
             cout << "Tipo tarjeta: "; cin >> TipoTarjeta;
             cout << "Numero tarjeta: "; cin >> NumeroTarjeta;
@@ -51,7 +54,34 @@ int main()
             Direccion direccion(calle, num, ciudad, estado, cp);
 
         }
+        if (opcion == 2)
+        {
+            Producto producto(01,3000,"MAC");
+            sephora.listarProductos();
+        }
+        if (opcion == 3)
+        {
+            int cliente;
+            int codigo;
+            string fecha;
+            cout << "Iniciar sesion" << endl;
+            sephora.mostrarClientes();
+            cout << "Cliente: "; cin >> cliente;
+            cout << "Fecha: "; cin >> fecha;
+            Pedido pedido(fecha);
+            sephora.agregarPedido(pedido);
+            cout << "Para agregar productos elija el numero de producto que quiere" << endl;
+            while (codigo != 0)
+            {
+                cout << "Producto: "; cin >> codigo;
+                for (const auto& producto : sephora.Productos){
+                    if (producto.id == codigo){
+                        pedido.agregarProducto(producto);
+                    }
+                }
+            }
+        }
 
 
-    } while (opcion > 0);
+    } while (opcion != 0);
 };

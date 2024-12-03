@@ -20,9 +20,12 @@ private:
 
 public:
     Sephora();
-    void agregarCliente(const Cliente& cliente);
-    void agregarPedido(const Pedido& pedido);
-    void listarProductos() const;
+    void agregarCliente(Cliente cliente);
+    void agregarPedido(Pedido pedido);
+    void agregarProducto(Producto producto);
+    void listarProductos();
+    void mostrarClientes();
+
 };
 
 #endif // SEPHORA_H
