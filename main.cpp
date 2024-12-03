@@ -37,17 +37,18 @@ int main()
             getline(cin, nom);
 
             cout << "Ingresa el correo: "; cin >> cor;
-            Cliente(nom,cor);
+            Cliente cliente(nom,cor);
 
             cout << "Tipo tarjeta: "; cin >> TipoTarjeta;
             cout << "Numero tarjeta: "; cin >> NumeroTarjeta;
-            MetodoPago(TipoTarjeta, NumeroTarjeta);
+            MetodoPago metodo_pago(TipoTarjeta, NumeroTarjeta);
 
             cout << "Calle: "; cin >> calle;
             cout << "Numero calle: "; cin >> num;
+            cout << "Ciudad: "; cin >> ciudad;
             cout << "Estado: "; cin >> estado;
             cout << "Codigo Postal: "; cin >> cp;
-            Direccion(calle, num, estado, cp);
+            Direccion direccion(calle, num, ciudad, estado, cp);
 
         }
 
